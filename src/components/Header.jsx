@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Bell, Smartphone, Monitor, Coins, VolumeX, MessageSquarePlus, MessageSquare, Image } from 'lucide-react';
+import { Menu, Bell, Smartphone, Monitor, Coins, MessageSquare, Image } from 'lucide-react';
 import { LOGO_DATA_URL } from '../constants/logo';
 
 export default function Header({ toggleSidebar, isSidebarOpen, user, onLoginClick, onLogoutClick }) {
@@ -15,11 +15,6 @@ export default function Header({ toggleSidebar, isSidebarOpen, user, onLoginClic
         >
           <Menu className="w-5 h-5" />
         </button>
-
-        {/* Mobile Brand Label (Kimi Mockup) */}
-        <div className="flex items-center md:hidden select-none">
-          <span className="text-[14px] font-semibold text-slate-200">@7กิโล๊ะ.com</span>
-        </div>
 
         {/* Desktop Brand Label */}
         <div className="hidden sm:flex items-center space-x-2 cursor-pointer group">
@@ -37,18 +32,6 @@ export default function Header({ toggleSidebar, isSidebarOpen, user, onLoginClic
 
       {/* Right side: Controls & User Profile */}
       <div className="flex items-center space-x-2 md:space-x-4">
-        {/* Mobile Kimi Icons */}
-        <div className="flex md:hidden items-center space-x-5 text-[#8a8a8a] pr-2">
-          <VolumeX className="w-[22px] h-[22px] cursor-pointer hover:text-slate-300" strokeWidth={1.5} />
-          <MessageSquarePlus className="w-[22px] h-[22px] cursor-pointer hover:text-slate-300" strokeWidth={1.5} />
-          <button onClick={() => alert('Chat feature coming soon!')} className="p-1.5 text-slate-500 hover:text-slate-200 hover:bg-white/10 rounded-full transition-colors cursor-pointer" aria-label="เปิดแชท">
-            <MessageSquare className="w-[22px] h-[22px]" />
-          </button>
-          <button onClick={() => window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent('รูปโคลน'), '_blank')} className="p-1.5 text-slate-500 hover:text-slate-200 hover:bg-white/10 rounded-full transition-colors cursor-pointer" aria-label="ค้นหารูปโคลน">
-            <Image className="w-[22px] h-[22px]" />
-          </button>
-        </div>
-
         {/* Device Mode Icons (Hidden on mobile) */}
         <div className="hidden sm:flex items-center space-x-1.5 p-1 bg-slate-50 border border-slate-100 rounded-lg">
           <button className="p-1 text-slate-500 hover:text-slate-800 hover:bg-white rounded-md transition-all cursor-pointer">
@@ -108,7 +91,7 @@ export default function Header({ toggleSidebar, isSidebarOpen, user, onLoginClic
           /* Guest: show Login button */
           <button
             onClick={onLoginClick}
-            className="px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer bg-white text-slate-900 active:scale-95 sm:text-white sm:bg-gradient-to-r sm:from-blue-600 sm:to-cyan-500 sm:hover:from-blue-700 sm:hover:to-cyan-600 sm:shadow-md"
+            className="px-3 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer bg-transparent text-[#c2c2c2] border border-[#2a2a2a] hover:text-white hover:border-[#f9597b] active:scale-95 sm:bg-gradient-to-r sm:from-blue-600 sm:to-cyan-500 sm:text-white sm:border-0 sm:hover:from-blue-700 sm:hover:to-cyan-600 sm:shadow-md"
           >
             เข้าสู่ระบบ
           </button>
