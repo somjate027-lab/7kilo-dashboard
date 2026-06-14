@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithGoogle, signInWithEmail } from '../utils/supabaseAuth';
-import { LOGO_DATA_URL } from '../constants/logo';
-
-/* ─────────────────────────────────────────────
-   LoginModal — Low-friction auth (Google / Magic Link)
-   ลูกค้ากดปุ่มเดียว ไม่ต้องตั้งรหัสผ่าน
-───────────────────────────────────────────── */
+import { MASCOT_DATA_URL } from '../constants/mascot';
 
 export default function LoginModal({ onClose, pendingAgent }) {
   const [email, setEmail] = useState('');
@@ -21,7 +16,6 @@ export default function LoginModal({ onClose, pendingAgent }) {
       setError('เข้าสู่ระบบด้วย Google ไม่สำเร็จ กรุณาลองใหม่');
       setLoading(false);
     }
-    // ถ้าสำเร็จ Supabase จะ redirect → onAuthChange จัดการต่อ
   };
 
   const handleEmail = async (e) => {
@@ -32,24 +26,23 @@ export default function LoginModal({ onClose, pendingAgent }) {
     const { error } = await signInWithEmail(email.trim());
     setLoading(false);
     if (error) {
-      setError('ส่ง magic link ไม่สำเร็จ กรุณาลองใหม่');
+      setError('ส่งลิงก์ไม่สำเร็จ กรุณาลองใหม่');
     } else {
       setEmailSent(true);
     }
   };
 
   return (
-    /* Backdrop */
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4"
       onClick={(e) => e.target === e.currentTarget && onClose?.()}
     >
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8 relative animate-fade-in">
+      <div className="bg-[#141414] sm:bg-white border border-[#2a2a2a] sm:border-transparent rounded-2xl shadow-2xl w-full max-w-sm p-7 sm:p-8 relative animate-fade-in">
 
-        {/* Close button */}
+        {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute top-4 right-4 text-[#666] sm:text-gray-400 hover:text-white sm:hover:text-gray-600 transition-colors"
           aria-label="ปิด"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,13 +50,14 @@ export default function LoginModal({ onClose, pendingAgent }) {
           </svg>
         </button>
 
-        {/* Logo + Title */}
+        {/* Mascot + Title */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 mb-3">
-            <img src={LOGO_DATA_URL} alt="7กิโล๊ะ" className="w-full h-full object-contain" />
+          <div className="relative inline-flex items-center justify-center w-20 h-20 mb-3">
+            <div className="absolute inset-0 rounded-full bg-[#f9597b]/25 blur-2xl scale-125 animate-pulse sm:hidden" />
+            <img src={MASCOT_DATA_URL} alt="7กิโล๊ะ" className="relative w-full h-full object-contain drop-shadow-[0_0_16px_rgba(249,89,123,0.45)] sm:drop-shadow-none" />
           </div>
-          <h2 className="text-xl font-bold text-gray-900">เข้าสู่ระบบ 7กิโล๊ะ</h2>
-          <p className="text-sm text-gray-500 mt-1">
+          <h2 className="text-xl font-bold text-white sm:text-gray-900">เข้าสู่ระบบ 7กิโล๊ะ</h2>
+          <p className="text-sm text-[#a8a8a8] sm:text-gray-500 mt-1">
             {pendingAgent
               ? `บันทึกข้อมูลและเปิด Agent ${pendingAgent}`
               : 'บันทึกและจัดการคดีของคุณ'}
@@ -71,32 +65,30 @@ export default function LoginModal({ onClose, pendingAgent }) {
         </div>
 
         {emailSent ? (
-          /* Magic link sent state */
           <div className="text-center py-4">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-3">
-              <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/15 sm:bg-green-100 rounded-full mb-3">
+              <svg className="w-6 h-6 text-emerald-400 sm:text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p className="font-semibold text-gray-800">ตรวจสอบอีเมลของคุณ</p>
-            <p className="text-sm text-gray-500 mt-1">ส่ง magic link ไปยัง <strong>{email}</strong> แล้ว</p>
-            <p className="text-xs text-gray-400 mt-2">คลิกลิงก์ในอีเมลเพื่อเข้าสู่ระบบ (ไม่ต้องตั้งรหัสผ่าน)</p>
+            <p className="font-semibold text-white sm:text-gray-800">ตรวจสอบอีเมลของคุณ</p>
+            <p className="text-sm text-[#a8a8a8] sm:text-gray-500 mt-1">ส่งลิงก์เข้าระบบไปยัง <strong className="text-white sm:text-gray-700">{email}</strong> แล้ว</p>
+            <p className="text-xs text-[#666] sm:text-gray-400 mt-2">คลิกลิงก์ในอีเมลเพื่อเข้าสู่ระบบ (ไม่ต้องตั้งรหัสผ่าน)</p>
             <button
               onClick={() => { setEmailSent(false); setEmail(''); }}
-              className="mt-4 text-sm text-blue-600 hover:underline"
+              className="mt-4 text-sm text-[#f9597b] hover:underline"
             >
               ใช้อีเมลอื่น
             </button>
           </div>
         ) : (
           <>
-            {/* Google Sign-in Button */}
+            {/* Google */}
             <button
               onClick={handleGoogle}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-blue-400 hover:bg-blue-50 rounded-xl px-4 py-3 font-semibold text-gray-700 transition-all duration-200 shadow-sm hover:shadow disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center gap-3 bg-[#1a1a1a] sm:bg-white border border-[#2a2a2a] sm:border-2 sm:border-gray-200 hover:border-[#f9597b] sm:hover:border-blue-400 hover:bg-[#1f1f1f] sm:hover:bg-blue-50 rounded-xl px-4 py-3 font-semibold text-white sm:text-gray-700 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {/* Google logo SVG */}
               <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                 <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -108,12 +100,12 @@ export default function LoginModal({ onClose, pendingAgent }) {
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-4">
-              <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-xs text-gray-400">หรือ</span>
-              <div className="flex-1 h-px bg-gray-200" />
+              <div className="flex-1 h-px bg-[#2a2a2a] sm:bg-gray-200" />
+              <span className="text-xs text-[#666] sm:text-gray-400">หรือ</span>
+              <div className="flex-1 h-px bg-[#2a2a2a] sm:bg-gray-200" />
             </div>
 
-            {/* Magic Link Email */}
+            {/* Email */}
             <form onSubmit={handleEmail} className="space-y-3">
               <input
                 type="email"
@@ -121,24 +113,22 @@ export default function LoginModal({ onClose, pendingAgent }) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="อีเมลของคุณ"
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+                className="w-full bg-[#0a0a0a] sm:bg-white border border-[#2a2a2a] sm:border-gray-200 text-white sm:text-gray-900 placeholder-[#666] sm:placeholder-gray-400 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#f9597b]/40 sm:focus:ring-blue-400 focus:border-[#f9597b] sm:focus:border-transparent transition-all"
               />
               <button
                 type="submit"
                 disabled={loading || !email.trim()}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white rounded-xl px-4 py-3 font-semibold text-sm transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-[#f9597b] to-[#c9468f] sm:from-blue-600 sm:to-cyan-500 hover:from-[#e0486a] hover:to-[#b03d7e] sm:hover:from-blue-700 sm:hover:to-cyan-600 text-white rounded-xl px-4 py-3 font-semibold text-sm transition-all duration-200 shadow-[0_4px_14px_rgba(249,89,123,0.35)] sm:shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {loading ? 'กำลังส่ง...' : 'ส่ง Magic Link ทางอีเมล'}
+                {loading ? 'กำลังส่ง...' : 'เข้าระบบผ่านอีเมล'}
               </button>
             </form>
 
-            {/* Error */}
             {error && (
-              <p className="mt-3 text-center text-sm text-red-500">{error}</p>
+              <p className="mt-3 text-center text-sm text-rose-400 sm:text-red-500">{error}</p>
             )}
 
-            {/* Privacy note */}
-            <p className="mt-4 text-center text-xs text-gray-400">
+            <p className="mt-4 text-center text-xs text-[#666] sm:text-gray-400">
               ไม่ต้องตั้งรหัสผ่าน · ข้อมูลปลอดภัย · ยกเลิกได้ทุกเวลา
             </p>
           </>
