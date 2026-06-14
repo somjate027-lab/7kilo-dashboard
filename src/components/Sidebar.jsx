@@ -44,17 +44,75 @@ export default function Sidebar({ isOpen, closeSidebar, activeTab, setActiveTab 
     { name: 'Line', color: 'bg-emerald-600 text-white', icon: 'LN' },
   ];
 
+  const handleMobileNav = (target) => {
+    setActiveTab(target);
+    closeSidebar();
+  };
+
   return (
     <>
-      {/* Mobile Sidebar Overlay Backdrop */}
+      {/* ═════════ MOBILE — Dark Sidebar ═════════ */}
       {isOpen && (
-        <div 
+        <div
           onClick={closeSidebar}
-          className="fixed inset-0 top-[61px] bg-slate-900/15 backdrop-blur-xs z-30 md:hidden cursor-pointer"
+          className="sm:hidden fixed inset-0 top-[61px] bg-black/60 backdrop-blur-sm z-30 cursor-pointer"
         />
       )}
+      <div className={`sm:hidden fixed top-[61px] left-0 h-[calc(100vh-61px)] w-72 z-40 bg-[#0a0a0a] border-r border-[#1a1a1a] transform transition-transform duration-300 ease-in-out ${
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        <div className="flex flex-col p-5 h-full overflow-y-auto">
+          <div className="space-y-1.5">
+            <button
+              onClick={() => handleMobileNav('แชท')}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
+                activeTab === 'แชท'
+                  ? 'bg-[#1a1a1a] text-white border border-[#2a2a2a]'
+                  : 'text-[#c2c2c2] hover:bg-[#141414]'
+              }`}
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>หน้าหลัก / แชท AI</span>
+            </button>
+            <button
+              onClick={() => handleMobileNav('คดีที่บันทึก')}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-[#c2c2c2] hover:bg-[#141414] text-sm font-medium transition-all"
+            >
+              <Folder className="w-4 h-4" />
+              <span>คดีที่บันทึก</span>
+            </button>
+          </div>
 
-      <div className={`fixed md:relative top-[61px] md:top-0 left-0 h-[calc(100vh-61px)] flex z-40 bg-slate-50 border-r border-slate-100 select-none transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
+          <div className="mt-6 mb-2 px-4">
+            <span className="text-[11px] font-semibold text-[#666] uppercase tracking-wider">
+              เครื่องมือสืบ
+            </span>
+          </div>
+          <div className="space-y-1">
+            {agentItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => handleMobileNav('แชท')}
+                  className="w-full flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-[#c2c2c2] hover:bg-[#141414] text-sm font-medium transition-all"
+                >
+                  <span className={`w-1.5 h-1.5 rounded-full ${item.dot}`} />
+                  <Icon className="w-4 h-4 text-[#888]" />
+                  <span>{item.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-auto pt-6 px-4 text-[11px] text-[#555]">
+            7กิโล๊ะ · AI นักสืบรถ
+          </div>
+        </div>
+      </div>
+
+      {/* ═════════ DESKTOP — Original Light Sidebar ═════════ */}
+      <div className={`hidden sm:flex md:relative top-[61px] md:top-0 left-0 h-[calc(100vh-61px)] z-40 bg-slate-50 border-r border-slate-100 select-none transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
       
