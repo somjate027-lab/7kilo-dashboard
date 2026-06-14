@@ -849,13 +849,13 @@ export default function MainContent({ user, requestLogin }) {
           <div className="w-4 h-4 rounded-full bg-[#f9597b] text-[#2b1820] flex items-center justify-center shrink-0">
             <span className="text-[10px] leading-none mb-[1px]">★</span>
           </div>
-          <span className="text-[#f9597b] text-[13.5px] font-medium tracking-wide">ค้นหารถด้วยรูปถ่ายโคลนนิ่ง (Clone Detector)</span>
+          <span className="text-[#f9597b] text-[13.5px] font-medium tracking-wide">รถหาย + AI โคลน นำไปโพสต์ขาย</span>
         </button>
 
         {/* Suggestion cards — dark premium cards */}
         <div className="space-y-2 mb-4">
           {[
-            { text: '😱 คลิปรถวิ่งก็ปลอมได้! AI ทำยังไง?', prompt: 'อธิบายให้ฟังหน่อย โจรยุคนี้ใช้ AI หลอกขายรถยังไงบ้าง ทั้งคลิปรถปลอม Chatbot คัดเหยื่อ และ Voice Cloning ปิด GPS — พร้อมวิธีสังเกตและป้องกัน' },
+            { text: '📍 ตามรถผ่าน GPS เก่า + cache map', prompt: 'อธิบายให้ฟังหน่อย โจรยุคนี้ใช้ AI หลอกขายรถยังไงบ้าง ทั้งคลิปรถปลอม Chatbot คัดเหยื่อ และ Voice Cloning ปิด GPS — พร้อมวิธีสังเกตและป้องกัน' },
             { text: 'วิธีตรวจจับโพสต์บอทขายรถต้องสงสัย', prompt: 'ช่วยสอนวิธีตรวจจับโพสต์ขายรถที่เป็นบอท/มิจฉาชีพ — สัญญาณอันตรายมีอะไรบ้าง' },
             { text: 'วิเคราะห์เอกสารรถยนต์ปลอมแปลงด้วย AI', prompt: 'ช่วยอธิบายวิธีวิเคราะห์เอกสารรถ (เล่มทะเบียน ใบเสร็จ) ที่ปลอมแปลงด้วย AI — เช็คอะไรบ้าง' },
           ].map((s, i) => (
