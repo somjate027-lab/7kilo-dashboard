@@ -828,7 +828,7 @@ export default function MainContent({ user, requestLogin }) {
               />
             </div>
             {/* Speech bubble "ว่าไง" */}
-            <div className="absolute -top-7 left-[78px] bg-[#1a1a1a] border border-[#3a3a3a] text-white text-[13px] font-medium px-3 py-1.5 rounded-2xl rounded-bl-none whitespace-nowrap shadow-lg">
+            <div className="absolute -top-2 left-[82px] bg-[#1a1a1a] border border-[#3a3a3a] text-white text-[13px] font-medium px-3 py-1.5 rounded-2xl rounded-bl-none whitespace-nowrap shadow-lg">
               ว่าไง 👋
               <div className="absolute bottom-0 left-0 w-0 h-0 border-t-[8px] border-t-[#3a3a3a] border-r-[8px] border-r-transparent translate-y-full" />
             </div>
