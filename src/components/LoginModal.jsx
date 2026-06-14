@@ -102,18 +102,18 @@ export default function LoginModal({ onClose, pendingAgent }) {
               </button>
             </form>
 
-            {/* Divider */}
-            <div className="flex items-center gap-3 my-4">
-              <div className="flex-1 h-px bg-[#2a2a2a] sm:bg-gray-200" />
-              <span className="text-xs text-[#666] sm:text-gray-400">หรือ</span>
-              <div className="flex-1 h-px bg-[#2a2a2a] sm:bg-gray-200" />
+            {/* Divider — desktop only */}
+            <div className="hidden sm:flex items-center gap-3 my-4">
+              <div className="flex-1 h-px bg-gray-200" />
+              <span className="text-xs text-gray-400">หรือ</span>
+              <div className="flex-1 h-px bg-gray-200" />
             </div>
 
-            {/* Google (SECONDARY) */}
+            {/* Google (SECONDARY) — desktop only */}
             <button
               onClick={handleGoogle}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 bg-[#1a1a1a] sm:bg-white border border-[#2a2a2a] sm:border-2 sm:border-gray-200 hover:border-[#f9597b] sm:hover:border-blue-400 hover:bg-[#1f1f1f] sm:hover:bg-blue-50 rounded-xl px-4 py-2.5 text-sm font-medium text-[#c2c2c2] sm:text-gray-700 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="hidden sm:flex w-full items-center justify-center gap-3 bg-white border-2 border-gray-200 hover:border-blue-400 hover:bg-blue-50 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
