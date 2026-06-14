@@ -701,8 +701,9 @@ export default function MainContent({ user, requestLogin }) {
                 {(msg.role === 'system-notice' || msg.role === 'scan-result') && null /* skip normal bubble render */}
                 {/* Assistant Avatar */}
                 {msg.role !== 'system-notice' && msg.role !== 'scan-result' && msg.role === 'assistant' && (
-                  <div className="w-9 h-9 rounded-full overflow-hidden bg-[#102033] border border-[#27415f] flex items-center justify-center shrink-0 shadow-sm mt-1">
-                    <img src={LOGO_DATA_URL} alt="7kilo" className="w-9 h-9 object-contain drop-shadow-[0_0_14px_rgba(96,165,250,0.9)]" />
+                  <div className="w-9 h-9 rounded-full overflow-hidden bg-transparent sm:bg-[#102033] sm:border sm:border-[#27415f] flex items-center justify-center shrink-0 mt-1 relative">
+                    <div className="absolute inset-0 rounded-full bg-blue-500/25 blur-md sm:hidden" />
+                    <img src={MASCOT_DATA_URL} alt="7กิโล๊ะ" className="relative w-9 h-9 object-contain drop-shadow-[0_0_10px_rgba(249,89,123,0.5)] sm:drop-shadow-[0_0_14px_rgba(96,165,250,0.9)]" />
                   </div>
                 )}
 
