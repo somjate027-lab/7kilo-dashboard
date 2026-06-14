@@ -56,12 +56,12 @@ export default function LoginModal({ onClose, pendingAgent }) {
             <div className="absolute inset-0 rounded-full bg-[#f9597b]/25 blur-2xl scale-125 animate-pulse sm:hidden" />
             <img src={MASCOT_DATA_URL} alt="7กิโล๊ะ" className="relative w-full h-full object-contain drop-shadow-[0_0_16px_rgba(249,89,123,0.45)] sm:drop-shadow-none" />
           </div>
-          <h2 className="text-xl font-bold text-white sm:text-gray-900">เข้าสู่ระบบ 7กิโล๊ะ</h2>
-          <p className="text-sm text-[#a8a8a8] sm:text-gray-500 mt-1">
-            {pendingAgent
-              ? `บันทึกข้อมูลและเปิด Agent ${pendingAgent}`
-              : 'บันทึกและจัดการคดีของคุณ'}
-          </p>
+          <h2 className="text-xl font-bold text-white sm:text-gray-900">เข้าสู่ระบบ</h2>
+          {pendingAgent && (
+            <p className="text-sm text-[#a8a8a8] sm:text-gray-500 mt-1">
+              บันทึกข้อมูลและเปิด Agent {pendingAgent}
+            </p>
+          )}
         </div>
 
         {emailSent ? (
