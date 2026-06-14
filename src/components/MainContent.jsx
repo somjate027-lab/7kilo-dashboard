@@ -827,10 +827,10 @@ export default function MainContent({ user, requestLogin }) {
                 }}
               />
             </div>
-            {/* Speech bubble "ว่าไง" */}
-            <div className="absolute -top-2 left-[82px] bg-[#1a1a1a] border border-[#3a3a3a] text-white text-[13px] font-medium px-3 py-1.5 rounded-2xl rounded-bl-none whitespace-nowrap shadow-lg">
+            {/* Speech bubble "ว่าไง" — pink gradient */}
+            <div className="absolute -top-2 left-[82px] bg-gradient-to-br from-[#f9597b] to-[#c9468f] text-white text-[13px] font-semibold px-3.5 py-1.5 rounded-2xl rounded-bl-none whitespace-nowrap shadow-[0_4px_14px_rgba(249,89,123,0.45)]">
               ว่าไง 👋
-              <div className="absolute bottom-0 left-0 w-0 h-0 border-t-[8px] border-t-[#3a3a3a] border-r-[8px] border-r-transparent translate-y-full" />
+              <div className="absolute bottom-0 left-0 w-0 h-0 border-t-[8px] border-t-[#c9468f] border-r-[8px] border-r-transparent translate-y-full" />
             </div>
           </div>
 
