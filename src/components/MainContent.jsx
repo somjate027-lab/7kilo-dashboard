@@ -843,7 +843,7 @@ export default function MainContent({ user, requestLogin }) {
 
         {/* CTA highlight card — Kimi Token Cup */}
         <button
-          onClick={() => handleSendMessage('รถผมหาย สงสัยโจรใช้ AI โคลนรูปแปลงสี/มุม/ทะเบียน แล้วเอาไปโพสต์ขายในเว็บมือสอง — ช่วยสแกนหาประกาศที่ตรงกับรถผม และบอกจุดพิรุธที่จับได้')}
+          onClick={() => handleSendMessage('รถผมถูกขโมยไป แล้วเจอรูปรถหน้าตาเหมือนกันถูกดัดแปลง (เปลี่ยนสี/มุม/ทะเบียน) เอาไปลงขาย สงสัยโจรใช้ AI โคลนรูปรถผม — ช่วยตรวจว่าใช่รถผมไหม และจุดพิรุธที่จับได้')}
           className="w-fit flex items-center gap-2 bg-[#2b1820] hover:bg-[#3a1d28] border border-[#522b3a] rounded-xl px-4 py-2 mb-2 active:scale-[0.98] transition-all cursor-pointer text-left"
         >
           <div className="w-4 h-4 rounded-full bg-[#f9597b] text-[#2b1820] flex items-center justify-center shrink-0">
