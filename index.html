@@ -11,12 +11,8 @@
         --line: #333;
         --muted: #a6a6a6;
         --pink: #f21479;
-        --blue: #2087ff;
-        --orange: #ff6b1d;
-        --lime: #bdf600;
         --text: #f7f7f7;
       }
-
       * { box-sizing: border-box; }
       html, body {
         margin: 0;
@@ -25,7 +21,6 @@
         background: var(--bg);
         color: var(--text);
       }
-
       body {
         min-height: 100vh;
         display: grid;
@@ -33,7 +28,6 @@
         padding: 18px;
       }
       button { font: inherit; }
-
       .machine {
         --accent: var(--pink);
         width: min(1400px, 100%);
@@ -45,7 +39,6 @@
         border: 1px solid #303234;
         box-shadow: 0 30px 80px rgba(0,0,0,.35);
       }
-
       .topbar {
         height: 76px;
         display: flex;
@@ -55,30 +48,19 @@
         background: linear-gradient(#191a1b, #0e0f10);
         border-bottom: 1px solid var(--line);
       }
-
       .dots { display: flex; gap: 9px; }
-      .dots i {
-        width: 19px; height: 19px; border-radius: 50%; display: block;
-      }
+      .dots i { width: 19px; height: 19px; border-radius: 50%; display: block; }
       .dots i:nth-child(1) { background: #ff4d42; }
       .dots i:nth-child(2) { background: #ffbd2f; }
       .dots i:nth-child(3) { background: #28c840; }
-
       .title { margin: 0; font-size: 20px; flex: 1; font-weight: 600; }
       .title small { font-size: 0.72em; opacity: 0.8; }
-
-      .zoom { color: #aaa; background: transparent; border: 0; cursor: pointer; font-size: 14px; letter-spacing: 0.04em; }
-      .online { font-size: 10px; letter-spacing: 0.15em; color: #999; white-space: nowrap; }
+      .zoom { color: #aaa; background: transparent; border: 0; cursor: pointer; font-size: 14px; letter-spacing: .04em; }
+      .online { font-size: 10px; letter-spacing: .15em; color: #999; white-space: nowrap; }
       .online::before {
         content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #43dd72; box-shadow: 0 0 10px #43dd72; margin-right: 6px; vertical-align: middle;
       }
-
-      .layout {
-        display: grid;
-        grid-template-columns: 76px 1fr 350px;
-        height: calc(100% - 76px);
-      }
-
+      .layout { display: grid; grid-template-columns: 76px 1fr 350px; height: calc(100% - 76px); }
       .tools {
         display: flex; flex-direction: column; gap: 12px; padding: 17px 11px; border-right: 1px solid var(--line); background: rgba(255,255,255,.01);
       }
@@ -86,62 +68,42 @@
         width: 51px; height: 51px; border-radius: 13px; border: 1px solid rgba(255,255,255,.15); background: #27292a; color: #ffc21c; font-size: 22px; cursor: pointer;
       }
       .tools button:last-child { color: #2f98ff; border-color: var(--accent); }
-
       .photo-wrap { position: relative; overflow: hidden; background: #222; }
       .photo-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease, filter .25s ease; filter: sepia(.07); }
       .photo-wrap::after { content: ""; position: absolute; inset: 0; background: inset 0 0 60px rgba(0,0,0,.45); pointer-events: none; }
-
       .scanline {
         position: absolute; left: 0; right: 0; top: 15%; height: 1px; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: scan 4s ease-in-out infinite; z-index: 2;
       }
-      @keyframes scan { 0%,100%{ top:15% } 50%{ top:85% } }
-
+      @keyframes scan { 0%, 100% { top: 15%; } 50% { top: 85%; } }
       .live-tag {
         position: absolute; left: 24px; bottom: 22px; display: inline-flex; align-items: center; gap: 8px; padding: 9px 11px; border: 1px solid rgba(255,255,255,.12); background: rgba(5,5,5,.85); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; z-index: 2;
       }
-      .live-tag::before {
-        content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #2efc84; box-shadow: 0 0 8px #2efc84;
-      }
-
+      .live-tag::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #2efc84; box-shadow: 0 0 8px #2efc84; }
       .sidebar { border-left: 1px solid var(--line); background: #101213; padding: 22px 20px 14px; }
       .title-box { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
       .title-box h2 { margin: 0; font-size: 15px; color: #fff; }
       .chip { border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 6px 10px; font-size: 11px; color: var(--muted); background: rgba(255,255,255,.02); }
-
-      .swatches {
-        display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-bottom: 18px;
-      }
-      .swatches button {
-        display: flex; align-items: center; gap: 10px; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: #191b1d; color: white; padding: 10px 12px; cursor: pointer; text-align: left;
-      }
+      .swatches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+      .swatches button { display: flex; align-items: center; gap: 10px; width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,.08); background: #191b1d; color: white; padding: 10px 12px; cursor: pointer; text-align: left; }
       .swatches button.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
       .swatches i { width: 16px; height: 16px; border-radius: 50%; display: block; }
       .swatches span { font-size: 12px; color: #efefef; }
-
-      .summary {
-        background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 14px 12px; margin-bottom: 16px;
-      }
+      .summary { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 14px 12px; margin-bottom: 16px; }
       .summary .label { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
       .summary strong { font-size: 16px; display: block; color: white; }
       .summary small { color: var(--muted); display: block; margin-top: 4px; }
-
       .status-box { display: grid; grid-template-columns: 1fr auto; gap: 8px 10px; align-items: center; margin-top: 12px; }
       .status-box .tag { font-size: 12px; color: var(--muted); }
       .status-box .status { font-size: 12px; color: #7ce7a7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
       .progress { grid-column: 1 / -1; height: 12px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; display: none; }
       .progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--pink), #ff6aa5); border-radius: inherit; }
-
-      .cta {
-        margin-top: 18px; width: 100%; border: 0; background: linear-gradient(135deg, var(--accent), #ff6aa5); color: white; border-radius: 14px; padding: 15px 16px; font-size: 16px; cursor: pointer; font-weight: 700;
-      }
+      .cta { margin-top: 18px; width: 100%; border: 0; background: linear-gradient(135deg, var(--accent), #ff6aa5); color: white; border-radius: 14px; padding: 15px 16px; font-size: 16px; cursor: pointer; font-weight: 700; }
       .cta:disabled { opacity: .7; cursor: wait; }
-
       .pickup { margin-top: 20px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.02); border-radius: 16px; padding: 14px 12px; }
       .pickup.ready { border-color: rgba(68,255,148,.45); background: rgba(40,200,110,.06); }
       .pickup strong { display: block; font-size: 13px; margin-bottom: 6px; }
       .pickup small { color: var(--muted); }
       .message { margin-top: 14px; color: #e4e4e4; font-size: 13px; min-height: 20px; }
-
       @media (max-width: 900px) {
         body { padding: 0; }
         .machine { height: auto; min-height: 100vh; border-radius: 0; }
@@ -163,14 +125,11 @@
   <body>
     <main class="machine" id="machine">
       <header class="topbar">
-        <div class="dots" aria-hidden="true">
-          <i></i><i></i><i></i>
-        </div>
+        <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
         <h1 class="title">ตู้กดเคสอัตโนมัติ <small>24hrs</small></h1>
         <button class="zoom" id="zoom" type="button">100%</button>
         <span class="online">ONLINE</span>
       </header>
-
       <div class="layout">
         <aside class="tools" aria-label="Toolbar">
           <button type="button" aria-label="Edit">✎</button>
@@ -179,51 +138,39 @@
           <button type="button" aria-label="Diamond">◇</button>
           <button type="button" aria-label="Grid">▣</button>
         </aside>
-
         <section class="photo-wrap" aria-label="Case preview">
           <img id="photo" alt="Preview case" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABOYAAATmCAYAAACF/K4qAAAQAElEQVR4AYz9gYJkN45kiZrl/3/sq1T3TFeGSnznALzuHin17jIIwmAwgLz065Epqabnx7//+/93fv2fn2v//fP8+7//df79f/61MfzX//3jfP1f8v/3X3jt5/nzf36C1161o/l5fl0/NdQbi79un/H/Q8//+S964OF/Xfs3tf+mRv/rG/7j/KLmsS9rtX//1/nz3/+N6de+iDf/x/miRvynnj2+6Ol59drif3EO7Sf+j/Pr//wx/gu9Z7CHXpMz/pO919CC3UP+Zezz9Tf7g3vVfp59vj/OL/bY2r2LX9T84vn1V5NDw9l/icl9YX+C53ng3e+5E/2rF2ea86n9v9wLsVrzv8CTw3+R/6Ln2h/Hvpv7jrfWs/zkc/h5/s3nP9p/o9M4i3X21/Ysf3D/P6+B7z4+yxg14+H/zTn+jf/1GHewZ6Ie7ov813hiPh91E9Njz+YzchbiORfPtu+F78Z/ny/fEznyj/4546sX/X+xj+YzaD6T9/0F/0X+C29//ad9cn5+n7nf4+k5Z/HMGD09kz0m51nH9ux/fsOXe9Xvvf7i8/jFs2n2+rTleL9+7/PRY/YlnjrPM8Zdj2ePj5zP84u7+CfzM3xs89TaY+o5A2f0brxT9/wPZ9L+5DurfeG/4LQ/8X/+7d36g/dvzc9n7bfPnT1+sZ/P/dzpPBe8Xv7T5KbP7HfvdzCfDftvnj15jl/a7fNFbs+H7uHw794+79rUUfvFvX3h1bjnns/z04Nnn2fm7N7N2HCeyTy95lzG117azx7khv/j/h67nyNnc7/Z3zPwHfv77/k/+J30m566r/t+6b8m3v3stbY1T/8vnnPeE/YQf7Gfue/PxDl9vnvWyYH3szfH8xpj3tfc4d3b2J6exb5i8757eu/Wd8D8YPb/Nc/wk/cH83zY1zXP+oXmbT/v3f1xtgf+lf95XnrOs5+Z93E1cL+uvWqJX88H9kxP/Jxfv8ZnjUb81Nvvwda+Y++IfdE//Obk6eP9atzhn//z3+c/2sc7ZI3mnWnPHv/UQ903++gzd8A+X2Pchd+N2ZMzeLa5u5/c6c/zizt/7OviLz6bF4b7Qv8LTt3XxD+p3ef88/b9QrN2c8SbY3/2FH/NGT0DNvknt/4L3fNMv8jb79fst3ttXvxz3puveyY1vgO/+LPIGs3faU8v/S/6rf3cs09f8U/u4I8xddqcdc5i7tPQDf/HvIe+E/9P5jm+Zp8/zi++e9oX51j7OT2+6PcLjTY8sfs/fc1rv+A1z2f8u1mvfdFrcz+Psfb17Mln9cp5d7+btdemjj3V73l8h//YMz/9/jd/6z5rfR7jtZ98Bmu/5u+2/zr+7vPvmu77i76/PMft4++OfXb3p45zf40Z/3H/nvTpeb94Vvdce2L+7sF37vUe8v34c4w87+ab/6/zH3jtT/hf7DXGmeZc1w9mn9dnwvv3S5v8HzzTz7O/A/+1nwXvwH4W" />
           <div class="scanline" aria-hidden="true"></div>
           <div class="live-tag">Live</div>
         </section>
-
         <aside class="sidebar">
           <div class="title-box">
             <h2>เลือกสีเคส</h2>
             <span class="chip">Premium</span>
           </div>
-
           <div class="swatches" id="swatches" aria-label="Color selection"></div>
-
           <div class="summary">
             <span class="label">รายละเอียด</span>
             <strong id="colorName">สี ฐานสี · พิมพ์คุณภาพสูง</strong>
             <small>เคส A01 • พิมพ์แบบลายละเอียด</small>
           </div>
-
           <div class="status-box">
             <span class="tag">สถานะ</span>
             <span class="status" id="status">READY</span>
-            <div class="progress" id="bar" aria-label="Progress">
-              <span id="fill"></span>
-            </div>
+            <div class="progress" id="bar" aria-label="Progress"><span id="fill"></span></div>
           </div>
-
           <button class="cta" id="print" type="button">พิมพ์เคส · ฿590</button>
-
           <div class="pickup ready" id="pickup">
             <strong>รับเคสได้ทันที</strong>
             <small>พร้อมจัดส่งและเก็บรักษาแบบปลอดภัย</small>
           </div>
-
           <div class="message" id="msg">พร้อมให้บริการ</div>
         </aside>
       </div>
     </main>
-
     <script>
-      const colors = [ ['ฐานสี', '#f21479'], ['น้ำเงิน', '#2087ff'], ['ควอตซ์', '#ff6b1d'], ['ไลม์', '#bdf600'], ['พิเศษ', '#111'] ];
-      let zoom = 100;
-      let busy = false;
+      const colors = [['ฐานสี', '#f21479'], ['น้ำเงิน', '#2087ff'], ['ควอตซ์', '#ff6b1d'], ['ไลม์', '#bdf600'], ['พิเศษ', '#111']];
+      let zoom = 100, busy = false;
       const machine = document.getElementById('machine');
       const swatches = document.getElementById('swatches');
       const photo = document.getElementById('photo');
