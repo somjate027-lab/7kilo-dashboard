@@ -82,26 +82,28 @@ const stats = [
   { icon: Search,      label: 'แพลตฟอร์ม',      value: '5+ แห่ง' },
 ];
 
+const heroCarImage = 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80';
+
 export default function LandingPage({ setActiveTab }) {
   return (
     <div className="flex-1 overflow-y-auto bg-slate-50">
       <div className="max-w-4xl mx-auto px-5 py-8 space-y-10">
 
         {/* ─── Hero ─── */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-5">
           <img
             src={MASCOT_DATA_URL}
             alt="7กิโล๊ะ"
             className="w-16 h-16 rounded-2xl object-contain flex-shrink-0"
           />
-          <div>
+          <div className="flex-1">
             <div className="flex items-center gap-2 mb-1">
               <h1 className="text-2xl font-bold text-slate-900">7กิโล๊ะ</h1>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed max-w-lg">
               สืบรถโคลน · รถหาย — เลือกเครื่องมือ หรือแชทกับ <strong className="text-slate-700">7กิโล๊ะ</strong> ได้เลย
             </p>
-            <div className="flex items-center gap-4 mt-3">
+            <div className="flex items-center gap-4 mt-3 flex-wrap">
               {stats.map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-1.5 text-xs text-slate-500">
                   <Icon className="w-3.5 h-3.5 text-indigo-400" />
@@ -109,6 +111,14 @@ export default function LandingPage({ setActiveTab }) {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="w-full max-w-[280px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <img
+              src={heroCarImage}
+              alt="Vehicle preview"
+              className="h-32 w-full object-cover"
+            />
           </div>
         </div>
 
@@ -177,8 +187,12 @@ export default function LandingPage({ setActiveTab }) {
           onClick={() => setActiveTab('แชท')}
           className="flex items-center gap-4 bg-white border border-slate-200 hover:border-indigo-300 rounded-2xl p-5 shadow-sm hover:shadow-md hover:shadow-indigo-50 transition-all duration-300 cursor-pointer group"
         >
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0 shadow-sm">
-            <div class="bg-slate-200 rounded w-12 h-12 flex items-center justify-center text-xs">image</div>
+          <div className="w-12 h-12 rounded-2xl overflow-hidden flex-shrink-0 shadow-sm border border-slate-200 bg-slate-100">
+            <img
+              src={heroCarImage}
+              alt="Car preview"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-semibold text-slate-800 text-sm">ไม่แน่ใจ? แชทกับ 7กิโล๊ะ โดยตรง</p>
