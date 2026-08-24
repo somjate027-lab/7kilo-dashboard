@@ -82,7 +82,7 @@ const stats = [
   { icon: Search,      label: 'แพลตฟอร์ม',      value: '5+ แห่ง' },
 ];
 
-const heroCarImage = 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80';
+const heroCarImage = '/car-hero.svg';
 
 export default function LandingPage({ setActiveTab }) {
   return (
